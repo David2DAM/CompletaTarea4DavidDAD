@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, TextField, Button, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper } from "@mui/material";
+import { Box, TextField, Button, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper, Tooltip } from "@mui/material";
 import { data } from "react-router-dom";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
@@ -132,14 +132,18 @@ const handleDelete = async () => {
       
     </Box >
     <Box sx={{padding:"15px"}}>
+      <Tooltip describeChild title="Guardar" arrow placement="top">
           <Button variant="contained" sx={{width:"400px"}} onClick={handleInsert}>
         Guardar
       </Button>
+      </Tooltip>
     </Box>
         <Box sx={{padding:"15px"}}>
+          <Tooltip describeChild title="Seleccionar" arrow placement="top">
           <Button variant="contained" sx={{width:"400px"}} onClick={handleSelect}>
         Seleccionar
       </Button>
+      </Tooltip>
     </Box>
     
 <TableContainer component={Paper} aria-label="Tabla david">
@@ -174,6 +178,7 @@ const handleDelete = async () => {
 
 
 <Box sx={{ padding: "15px" }}>
+  <Tooltip describeChild title="Eliminar" arrow placement="top">
   <Button
     variant="contained"
     sx={{ width: "400px" }}
@@ -182,6 +187,7 @@ const handleDelete = async () => {
   >
     
   </Button>
+  </Tooltip>
 </Box>
 
   </>

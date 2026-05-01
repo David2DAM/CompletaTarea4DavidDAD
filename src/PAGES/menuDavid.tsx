@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import type { RootState } from '../store/index';
 //Importamos las acciones que están en el fichero authSlice.ts
 import { authActions } from '../store/authSlice';
-import { AppBar, Box, Button,  Drawer,  IconButton,  List,  ListItem,  ListItemButton,  ListItemIcon,  ListItemText,  Toolbar,  Typography } from '@mui/material';
+import { AppBar, Box, Button,  Drawer,  IconButton,  List,  ListItem,  ListItemButton,  ListItemIcon,  ListItemText,  Toolbar,  Tooltip,  Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react'
 
@@ -14,7 +14,7 @@ import StarIcon from '@mui/icons-material/Star';
 import MenuIcon from '@mui/icons-material/Menu';
 import AllInboxIcon from '@mui/icons-material/AllInbox';
 import React from 'react';
-import { Star } from '@mui/icons-material';
+import { HelpOutline, Star } from '@mui/icons-material';
 
 type MenuDavidProps = {
   origen: string;
@@ -108,6 +108,18 @@ const navigate = useNavigate()
           </ListItemButton>
         </ListItem>
       </Link>
+
+<a href="/David_Rodriguez_Castellano_DAD_4.pdf" target="_blank" rel="noopener noreferrer" 
+   style={{ textDecoration: "none", color: "black" }}>
+  <ListItem disablePadding>
+    <ListItemButton>
+      <ListItemIcon>
+        <HelpOutline />
+      </ListItemIcon>
+      <ListItemText primary="Ayuda" />
+    </ListItemButton>
+  </ListItem>
+</a>
     </Box>
     
    );
@@ -144,9 +156,11 @@ return(
         <Typography>{origen} de david, Hola soy {userData.userName} y tengo el rol de {userData.userRol} </Typography>
         <Typography>{ponEmoji()}</Typography>
 
+        <Tooltip describeChild title="Salir" arrow placement="top">
         <Button variant='contained' fullWidth type='submit' onClick={HandleAction}>
                 Salir
         </Button>
+        </Tooltip>
     </>
 );
 }
